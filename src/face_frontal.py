@@ -1,17 +1,20 @@
 import cv2
 
-# Setando a classificacao do xml da OpenCV para olhos
-faceCascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_eye.xml')
+# Xml de classificacao da OpenCV para faces
+
+
+# Setando a classificacao do xml da OpenCV
+faceCascade = cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_frontalface_default.xml")
 
 # Ler a imagem
-image = cv2.imread(r"C:\Users\inaci\PycharmProjects\ReconhecimentoFacial\imagem\img1.jpg")
+image = cv2.imread(r"../imagem/img1.jpg")
 
 gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
 # Fazer a deteccao da imagem
 faces = faceCascade.detectMultiScale(
     gray,
-    scaleFactor=1.1,
+    scaleFactor=1.2,
     minNeighbors=5,
     minSize=(30, 30)
 )
